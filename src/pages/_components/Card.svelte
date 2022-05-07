@@ -1,8 +1,6 @@
 <script>
-    export let color
     export let title
     export let emoji
-    import { url, params } from "@roxi/routify";
     import Modal from "./Modal.svelte";
     let modal;
 </script>
@@ -11,7 +9,7 @@
 .card{
     color: white;
     padding: 20px;
-    background-color: var(--color);
+    background-color:#263286;
     font-size: 50px;
     width: 350px;
     height: 350px;
@@ -32,8 +30,8 @@
   display:block;
   margin: 0 auto;
   border-radius: 30px;
-  color:var(--color);
-  background-color: white;
+  color:#263286;
+  background-color: #6EBD8F;
   text-align: center;
   font-size: 15px;
   padding: 5px;
@@ -48,7 +46,7 @@
 </style>
 
 
-<div class="card" style="--color:{color};">
+<div class="card">
     <h1 class="emoji"> {emoji}</h1>
     <h1 class="card-title"> {title}</h1>
     <button class= "Add-btn"  on:click={() => modal.show()}>Add New</button>

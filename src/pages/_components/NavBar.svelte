@@ -33,7 +33,7 @@ height: auto;
 }
 
 .header-right a{
-  background-color: #6638F0;
+  background-color: #004489;
   color: white;
   margin-right: 100px;
   width: 200px;
@@ -70,8 +70,8 @@ height: auto;
   </a>
 
   <div class="header-right">
-    <a href="/jobs">Jobs</a>
-    <a href="/products">Materials</a>
+    <a href="/jobs">👀 All Jobs</a>
+    <a href="/products">👀 All Materials</a>
   </div>
 </div>
 </main>

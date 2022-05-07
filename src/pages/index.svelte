@@ -28,17 +28,22 @@
     .title{
         text-align: center;
     }
+    .span-title{
+        display:inline-block;
+        color:#263286;
+
+    }
 
 </style>
 
 <NavBar />
 
 <div class="wrapper">
-    <h1 class="title">👋 Welcome to the Entreprise du Futur Board!</h1>
-    <h2 class="title">Everything you need as a student</h2>
+    <h1 class="title">👋 Welcome to the <span class="span-title">Entreprise du Futur</span> Board</h1>
+    <h2 class="title">Share with your friends important stuff</h2>
 </div>
 
 <div class="container">
-    <Card color="#278E6F" emoji="🎒" title="Job" link="./jobs" img="/jobs.png"/>
-    <Card color="#27318E" emoji="📚" title="Study Material" link="./products" img="/books.png"/>
+    <Card emoji="🎒" title="Job" link="./jobs" img="/jobs.png"/>
+    <Card emoji="📚" title="Study Material" link="./products" img="/books.png"/>
 </div>
