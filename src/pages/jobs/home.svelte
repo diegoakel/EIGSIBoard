@@ -1,6 +1,9 @@
 <script>
   import { url } from "@roxi/routify";
+  import NavBar from '../_components/NavBar.svelte'
 </script>
+
+<NavBar/>
 
 <div style="padding-top: 20px">
   <h1>Feed</h1>
