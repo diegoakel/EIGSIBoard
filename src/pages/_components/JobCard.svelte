@@ -26,6 +26,7 @@
 
     h1 { 
         font-size: 25px;
+        padding: 0px 0px 6px 0px;
     }
 
     img { 
@@ -35,12 +36,16 @@
     }
 
     .all {
-        /* display: block; */
-        padding: 5px;
+        padding: 20px;
         width: 90%;
         background-color: var(--color);
-        margin-top: 10px;
+        margin: 8px;
         border-radius: 20px;
+    }
+    .all:hover {
+      transform: scale(0.99, 0.99);
+      box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.25), 
+        -2px -2px 4px 2px rgba(0,0,0,0.08);
     }
 
     .all a{
@@ -56,26 +61,23 @@
     }
 
     .tech {
-        margin-right: 400px;
+        align-items: left;
     }
     
-    @media screen and (max-width: 1100px) {
-        .tech {
-            margin-right: 200px;
-        }
-        }
 
     @media screen and (max-width: 900px) {
         .tech {
-            margin-right: 50px;
-        }
-        }
-
-    @media screen and (max-width: 700px) {
-        .tech {
             display: none;
         }
+        .all div{ 
+            flex-direction: column;
+            align-items: center;
         }
+
+        img { 
+            display: none;
+        }
+}
 
 </style>
 
@@ -83,7 +85,8 @@
     
     <!-- <a href="www.google.com"> -->
 
-        <div style="float:left;"><img src="/eigsi.png" alt=""></div>
+        <div style="float:left;">
+        <img src="/hojentropia.png" alt=""></div>
         
         <div  style="float:left;padding-left: 20px;">
             <p>Hojentropia</p> 
@@ -93,7 +96,7 @@
             <h4 class="card">🌍 Remote</h4> 
             <h4 class="card">💰 $78k - $120k</h4> 
             <h4 class="card">📋 CDI</h4>
-            <a href="www.google.com">
+            <a href="https://www.linkedin.com/jobs/collections/recommended/?currentJobId=3064804447">
                 <h4 class="card" style="padding:3px 15px 3px 15px;color:white;background-color:#3dfc03;">Apply</h4>
             </a>
         </div>

@@ -45,5 +45,5 @@
 
 <div class="container">
     <Card emoji="🎒" title="Job" link="./jobs" img="/jobs.png"/>
-    <Card emoji="📚" title="Study Material" link="./products" img="/books.png"/>
+    <Card emoji="📚" title="Subjects News" link="./products" img="/books.png"/>
 </div>

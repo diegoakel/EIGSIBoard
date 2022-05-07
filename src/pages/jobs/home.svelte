@@ -1,5 +1,4 @@
 <script>
-  import { url } from "@roxi/routify";
   import NavBar from '../_components/NavBar.svelte'
   import JobCard from '../_components/JobCard.svelte'
 </script>

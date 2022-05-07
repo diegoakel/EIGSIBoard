@@ -1,7 +1,8 @@
 <script>
     export let title
     export let emoji
-    import Modal from "./Modal.svelte";
+    import ModalJob from "./ModalJob.svelte";
+    import ModalSubject from "./ModalSubject.svelte";
     let modal;
 </script>
 
@@ -52,8 +53,8 @@
     <button class= "Add-btn"  on:click={() => modal.show()}>Add New</button>
 </div>
 
-<Modal bind:this={modal}>
-  <!-- <h2>Modal title</h2>
-  <p>Modal content.</p>
-  <button class= "Close-btn" on:click={() => modal.hide()}>Close</button> -->
-</Modal>
+{#if title == 'Job'}
+<ModalJob bind:this={modal}/>
+{:else}
+<ModalSubject bind:this={modal}/>
+{/if}

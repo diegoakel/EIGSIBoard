@@ -49,18 +49,43 @@ height: auto;
   float: right;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 900px) {
   .header a {
     float: none;
     display: block;
-    text-align: left;
+    text-align: center;
+    margin-right: 0 auto;
+  }
+  
+  .header-right {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    margin-right: 0 auto;
+  }
+  .header-right a{
+    width: 100%;
+    margin-right: 0 0;
+  }
+}
+/* @media screen and (max-width: 900px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: center;
   }
   
   .header-right {
     float: right;
     text-align: center;
+    align-items: center;
   }
-}
+
+  .header-right a{
+    margin-right: 0 auto;
+  }
+}  */
+
  
 </style>
 <main>
@@ -71,7 +96,7 @@ height: auto;
 
   <div class="header-right">
     <a href="/jobs">👀 All Jobs</a>
-    <a href="/products">👀 All Materials</a>
+    <a href="/products">👀 News</a>
   </div>
 </div>
 </main>

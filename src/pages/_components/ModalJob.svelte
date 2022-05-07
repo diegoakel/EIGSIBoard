@@ -41,9 +41,7 @@
     .close:hover {
       font-weight: bold;
     }
-    label {
-      text-
-    }
+
   </style>
   
   <svelte:window
