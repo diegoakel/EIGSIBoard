@@ -17,13 +17,28 @@
         margin: 0 auto;
         max-width: 1200px;
     }
+
+    .wrapper{
+        width: 100%;
+        display: block;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .title{
+        text-align: center;
+    }
+
 </style>
 
 <NavBar />
-<h1>Welcome to the EIGSI Board!</h1>
-<p>We help you to find you intership and sell or buy used products from another students!</p>
+
+<div class="wrapper">
+    <h1 class="title">👋 Welcome to the Entreprise du Futur Board!</h1>
+    <h2 class="title">Everything you need as a student</h2>
+</div>
 
 <div class="container">
-    <Card color="#278E6F" title="Jobs" link="./jobs"/>
-    <Card color="#27318E" title="Products" link="./products"/>
+    <Card color="#278E6F" emoji="🎒" title="Job" link="./jobs" img="/jobs.png"/>
+    <Card color="#27318E" emoji="📚" title="Study Material" link="./products" img="/books.png"/>
 </div>

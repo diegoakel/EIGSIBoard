@@ -1,16 +1,26 @@
 <script>
   import { url } from "@roxi/routify";
   import NavBar from '../_components/NavBar.svelte'
+  import JobCard from '../_components/JobCard.svelte'
 </script>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+</style>
 
 <NavBar/>
 
-<div style="padding-top: 20px">
-  <h1>Feed</h1>
-</div>
+<div class="container">
+  <h1>💼 Open job opportunities</h1>
+  {#each new Array(10) as item, id}
+    <JobCard />
+  {/each}
 
-{#each new Array(10) as item, id}
-  <a class="card" href={$url('./:id', { id })}>
-    <h3 class="item">{id}</h3>
-  </a>
-{/each}
+</div>

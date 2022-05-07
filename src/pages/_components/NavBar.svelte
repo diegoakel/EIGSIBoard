@@ -17,8 +17,8 @@ height: auto;
 
 .header {
   overflow: hidden;
-  background-color: #f1f1f1;
-  padding: 20px 10px;
+  /* background-color: #f1f1f1; */
+  /* padding: 20px 10px; */
 }
 
 .header a {
@@ -32,14 +32,17 @@ height: auto;
   border-radius: 4px;
 }
 
+.header-right a{
+  background-color: #6638F0;
+  color: white;
+  margin-right: 100px;
+  width: 200px;
+  margin-top: 22px;
+}
+
 .header a.logo {
   font-size: 25px;
   font-weight: bold;
-}
-
-.header a:hover {
-  background-color: #ddd;
-  color: black;
 }
 
 .header-right {
@@ -54,7 +57,8 @@ height: auto;
   }
   
   .header-right {
-    float: none;
+    float: right;
+    text-align: center;
   }
 }
  
@@ -67,7 +71,7 @@ height: auto;
 
   <div class="header-right">
     <a href="/jobs">Jobs</a>
-    <a href="/products">Products</a>
+    <a href="/products">Materials</a>
   </div>
 </div>
 </main>

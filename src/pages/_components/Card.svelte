@@ -1,35 +1,61 @@
 <script>
-    import { url } from "@roxi/routify";
     export let color
     export let title
-    export let link
-
+    export let emoji
+    import { url, params } from "@roxi/routify";
+    import Modal from "./Modal.svelte";
+    let modal;
 </script>
 
 <style>
 .card{
     color: white;
+    padding: 20px;
     background-color: var(--color);
-    font-size: 71px;
+    font-size: 50px;
     width: 350px;
-    height: 450px;
+    height: 350px;
     border-radius: 30px;
     text-align: center;
     margin: 50px;
-    line-height: 300px;
+    justify-content: space-between;
+}
+.card-title{  
+  font-size: 40px;
+ 
+}
+.emoji{  
+  font-size: 50px;
 }
 
-a { 
-    text-decoration: none;
+.Add-btn{
+  display:block;
+  margin: 0 auto;
+  border-radius: 30px;
+  color:var(--color);
+  background-color: white;
+  text-align: center;
+  font-size: 15px;
+  padding: 5px;
+  width: 50%;
+  font-weight: bold;
 }
-.card:hover {
+.Add-btn:hover {
   box-shadow: 0 0 11px rgba(33,33,33,.7); 
 }
 
+
 </style>
 
-<a href={$url(link)}>
-    <div class="card" style="--color:{color};">
-      {title}
-  </div>
-</a>
+
+<div class="card" style="--color:{color};">
+    <h1 class="emoji"> {emoji}</h1>
+    <h1 class="card-title"> {title}</h1>
+    <button class= "Add-btn"  on:click={() => modal.show()}>Add New</button>
+</div>
+
+<Modal bind:this={modal}>
+  <!-- <h2>Modal title</h2>
+  <p>Modal content.</p>
+  <button class= "Close-btn" on:click={() => modal.hide()}>Close</button> -->
+</Modal>

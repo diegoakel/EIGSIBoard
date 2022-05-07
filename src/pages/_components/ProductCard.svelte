@@ -17,7 +17,7 @@
 .product-card{
     flex: 0 0 auto;
     width: 250px;
-    height: 600px;
+    height: 500px;
     border-radius:30px;
     margin-right: 40px;
     background-color: #F1F1F1;
@@ -36,7 +36,7 @@
 .product-thumb{
     width: 100%;
     height: 250px;
-    /* object-fit: cover; */
+
 }
 
 .card-btn{
@@ -64,27 +64,36 @@
 .product-brand{
     text-transform: uppercase;
     font-size: 15px;
+    text-align: center;
 }
 
 .product-short-des{
     width: 100%;
-    height: 20px;
+    /* height: 20px; */
     overflow: hidden;
     text-transform: capitalize;
-    margin: 5px 0;
+    /* margin: 5px 0; */
+    text-align: center;
 }
 
 .actual-price{
     /* margin: 50px; */
-    padding: 2px;
+    padding: 0px 100px 0px 100px;
     font-size: 20px;
-    background: green;
-    font-
-    
+    background-color: rgb(90, 141, 90);
+    color: white;
+    position: absolute;
+    border-radius: 20px;
+    text-align: center;
 }
+.title{
+  font-size:30px;
+  text-align: center;
+
+  }
  
 </style>
-
+<h1 class="title">🤑 Selling Products</h1>
   <div class="product-container">
     <div class="product-card">
         <div class="product-image">
