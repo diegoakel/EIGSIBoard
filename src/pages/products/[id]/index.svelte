@@ -20,7 +20,7 @@
 <div class="container">
   <h1>⚛️ {id}</h1>
   {#each new Array(3) as item, id}
-    <NewsCard />
+    <NewsCard {id}/>
   {/each}
 
 </div>

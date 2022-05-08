@@ -1,4 +1,6 @@
 <script>
+    import ModalJob from "./ModalJob.svelte";
+
     let colors = [
         "#6EF9F5",
         "#63E2C6",
@@ -9,6 +11,17 @@
 
     // Pick random color
     const color = colors[Math.floor(Math.random() * colors.length)];
+
+    let modal
+    export let job
+    let skills = job.skills.split(";")
+    // export let name;
+    // export let logourl;
+    // export let title;
+    // export let offerurl;
+    // export let skills;
+    // export let stagetype;
+    // export let worktype;
 </script>
 
 <style>
@@ -22,6 +35,8 @@
     }
     h4 {
         font-size: 12px;
+        display: block;
+        text-align: left;
     }
 
     h1 { 
@@ -60,10 +75,27 @@
         padding: 3px;
     }
 
+    .apply {
+        padding:3px 15px 3px 15px;
+        color:white;
+        background-color:#3dfc03;
+    }
+
     .tech {
         align-items: left;
     }
-    
+    .hiden {
+      display: none;
+      background: yellow;
+      border-radius:50px;
+      padding:3px 15px 3px 15px;
+    }
+
+    .all:hover .hiden {
+      display: inline-block;
+      color: black;
+      text-align: right;
+    }
 
     @media screen and (max-width: 900px) {
         .tech {
@@ -81,33 +113,34 @@
 
 </style>
 
-<div class='all' style='--color:{color};'>
-    
-    <!-- <a href="www.google.com"> -->
-
+<button class='all' style='--color:{color};' on:click={() => modal.show()}>
         <div style="float:left;">
-        <img src="/hojentropia.png" alt=""></div>
+        <img src={job.logourl} alt=""></div>
         
-        <div  style="float:left;padding-left: 20px;">
-            <p>Hojentropia</p> 
+        <div  style="float:left; align-items: left; padding: 0 0 0 10px">
+            <p>{job.name}</p> 
             <br/>
-            <h1>Backend developer</h1> 
+            <h1>{job.title}</h1> 
             <br/>
-            <h4 class="card">🌍 Remote</h4> 
-            <h4 class="card">💰 $78k - $120k</h4> 
-            <h4 class="card">📋 CDI</h4>
-            <a href="https://www.linkedin.com/jobs/collections/recommended/?currentJobId=3064804447">
-                <h4 class="card" style="padding:3px 15px 3px 15px;color:white;background-color:#3dfc03;">Apply</h4>
+            <div style="float:left">
+            <h4 class="card">🌍 {job.worktype}</h4> 
+            <h4 class="card">💰 ${job.salary}</h4> 
+            <h4 class="card">📋 {job.worktype}</h4>
+            </div>
+            <a href={job.offerurl}>
+                <h4 class="card apply">Apply</h4>
             </a>
+            <h4 class ="hiden">✍️ Edit Offer</h4>
         </div>
 
         <div  style="float:right;" class="tech">
             <p></p><br/>
-            <h4 class="card">Python</h4> 
-            <h4 class="card">Git</h4> 
-            <h4 class="card">Javascript</h4>
+            {#each skills as item}
+            <h4 class="card">{item}</h4>
+            {/each}
             <br/>
         </div>
-    <!-- </a> -->
 
-</div>
+</button>
+
+<ModalJob bind:this={modal} job = {job}/>

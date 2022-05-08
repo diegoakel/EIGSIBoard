@@ -34,7 +34,7 @@
     </script>
   
   <style>
-    .modal-wrapper {
+     .modal-wrapper {
       background-color: rgb(0, 0, 0);
       background-color: rgba(0, 0, 0, 0.6);
       position: fixed;
@@ -42,23 +42,37 @@
       height: 100%;
       top: 0;
       left: 0;
-      display: block;
     }
   
     .modal {
       background-color: white;
       max-width: 80vw;
-      padding: 1rem;
-      margin: 15% auto;
+      padding: 2rem;
+      margin: 2% auto;
       display: block;
+      height: 80%;
     }
     .close {
       float: right;
       cursor: pointer;
+      font-size:30px;
     }
     .close:hover {
       font-weight: bold;
+      color: red;
     }
+    .input-modal {
+   background-color: white;
+   background-position: 10px 10px;
+   display:block;
+   width: 100%;
+   font-size: 15px;
+    }
+    button {
+      display:block;
+      width: 20%;
+    }
+  
 
   </style>
   
@@ -75,22 +89,23 @@
         <span class="close" on:click={() => hide()}>&times;</span>
         <slot />
         <h1>🧐 Tell your friends what's Up</h1>
-        <h3>Subject:</h3>
+        <p>📚 Subject:</p>
         <select>
           {#each subjects as item (item.id)}
           <option value={item.id}>{item.title}</option>
           {/each}
         </select>
-        <h3>Your Name</h3>
-        <input bind:value={title} placeholder="Name">
-        <h3>Tags</h3>
+        <p>📚 Your Name</p>
+        <input class="input-modal" bind:value={title} placeholder="Name">
+        <p>📚 Tags</p>
         <select>
           {#each tags as item (item.id)}
           <option value={item.id}>{item.tag}</option>
           {/each}
         </select>
-        <textarea id="story" name="story"rows="5" cols="33"> What's Up?</textarea>
-        <button>Send</button>
+        <p>📚 News </p>
+        <input class="input-modal" placeholder="What's Up?">
+        <button>Submit</button>
       </div>
     </div>
   {/if}
