@@ -1,10 +1,8 @@
 <script>
     import { metatags } from '@roxi/routify'
-    import { url } from "@roxi/routify";
     import NavBar from "./_components/NavBar.svelte";
     import Card from "./_components/Card.svelte";
 
-    
     metatags.title = 'EIGSI Board'
     metatags.description = 'The ONE board for every EIGSI student'
 </script>
@@ -44,6 +42,6 @@
 </div>
 
 <div class="container">
-    <Card emoji="🎒" title="Job" link="./jobs" img="/jobs.png"/>
-    <Card emoji="📚" title="Subjects News" link="./products" img="/books.png"/>
+    <Card emoji="🎒" title="Job"/>
+    <Card emoji="📚" title="Subjects News"/>
 </div>

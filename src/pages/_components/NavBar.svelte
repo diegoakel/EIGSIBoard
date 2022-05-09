@@ -17,8 +17,6 @@ height: auto;
 
 .header {
   overflow: hidden;
-  /* background-color: #f1f1f1; */
-  /* padding: 20px 10px; */
 }
 
 .header a {
@@ -68,35 +66,18 @@ height: auto;
     margin-right: 0 0;
   }
 }
-/* @media screen and (max-width: 900px) {
-  .header a {
-    float: none;
-    display: block;
-    text-align: center;
-  }
-  
-  .header-right {
-    float: right;
-    text-align: center;
-    align-items: center;
-  }
-
-  .header-right a{
-    margin-right: 0 auto;
-  }
-}  */
-
  
 </style>
 <main>
 <div class="header">
+  
   <a href="/" class="logo">
     <img src="/eigsi.png" alt="Logo of EIGSI">
   </a>
 
   <div class="header-right">
     <a href="/jobs">👀 All Jobs</a>
-    <a href="/products">👀 News</a>
+    <a href="/news">👀 News</a>
   </div>
 </div>
 </main>

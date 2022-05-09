@@ -1,6 +1,6 @@
 <script>
-    let shown = false;
-    export let job = ''
+    import { supabase } from "../../lib/supabaseClient";
+  
     export function show() {
       shown = true;
     }
@@ -8,30 +8,69 @@
       shown = false;
     }
 
-    export let name = '';
-    export let logourl ='';
-    export let title ='';
-    export let offerurl ='';
-    export let skills ='';
-    export let stagetype = 1;
-    export let worktype = 1;
+    let insert_data = async() => {
+      const { data, error } = await supabase
+      .from('jobs')
+      .upsert({ 
+        id: id, 
+        company: company,
+        logourl:logourl,
+        title: title,
+        offerurl:offerurl,
+        skills:skills,
+        salary: salary,
+        joblevel:joblevel,
+        place:place })     
+
+      hide()
+      location.reload()
+    }
+
+    let shown = false;
+    export let id
+    export let job ='';
+    export let company
+    export let logourl
+    export let title
+    export let offerurl
+    export let skills
+    export let salary='';
+    export let joblevel='';
+    export let place='';
     let modaltitle ='🚀 Add a new Job Offer:'
     let buttontitle ='Submit'
     
-    
+    let salarys = [
+    'Less than €500',
+    '€500 - €700',
+    '€700 - €900',
+    '€900 - €1.100',
+    'More than €1.100'
+  ]
+  let places = [
+    'Remote',
+    'Presential',
+    'Hybrid'
+  ]
+  let joblevels = [
+    'CDI',
+    'Alternance',
+    'Stage'
+  ]
 
-    if (job != '') {
-      name = job.name;
-      logourl = job.logourl;
-      title = job.title;
-      offerurl = job.offerurl;
-      skills = job.skills;
-      stagetype = job.stagetype;
-      worktype = job.worktype;
-      modaltitle = '✍️ Edit Job Offer:';
-      buttontitle ='Save Changes'
-    }
-
+  if (job != '') {
+    id = job.id
+    company = job.company;
+    logourl = job.logourl;
+    title = job.title;
+    offerurl = job.offerurl;
+    skills = job.skills;
+    joblevel = job.joblevel;
+    place = job.place;
+    salary = job.salary;
+    modaltitle = '✍️ Edit Job Offer:';
+    buttontitle ='Save Changes'
+  }
   </script>
   
   <style>
@@ -44,7 +83,6 @@
       top: 0;
       left: 0;
     }
-  
     .modal {
       background-color: white;
       max-width: 80vw;
@@ -75,6 +113,12 @@
       display:block;
       width: 20%;
     }
+    select {
+      width: 100%;
+    }
+    p { 
+      margin: 0px;
+    }
   
 
   </style>
@@ -91,50 +135,38 @@
       <div class="modal">
         <span class="close" on:click={() => hide()}>&times;</span>
         <slot />
+        
+        <form on:submit|preventDefault={insert_data}>
         <h1>{modaltitle}</h1>
         <p>🤑 General Information<p>
-        <input class ="input-modal"bind:value={title} placeholder="Job Title">
-        <input class ="input-modal" bind:value={name} placeholder="Company Name">
-        <input class ="input-modal" bind:value={offerurl} placeholder="Linkedin URL">
-        <input class ="input-modal" bind:value={logourl} placeholder="Company Logo URL">
-        <input class ="input-modal" bind:value={skills} placeholder="Needed skills separated by ;">
+        <input class ="input-modal"bind:value={title} placeholder="Job Title" required>
+        <input class ="input-modal" bind:value={company} placeholder="Company" required>
+        <input class ="input-modal" bind:value={offerurl} placeholder="Linkedin URL" required>
+        <input class ="input-modal" bind:value={logourl} placeholder="Company Logo URL" required>
+        <input class ="input-modal" bind:value={skills} placeholder="Needed skills separated by ;" required>
         <p>🤑 Contract Type<p>
-        <label>
-        	<input type=radio bind:group={stagetype} value={1}>
-        	Stage
-        </label>
-        <label>
-        	<input type=radio bind:group={stagetype} value={2}>
-        	Alternance
-        </label>
-        <label>
-        	<input type=radio bind:group={stagetype} value={3}>
-        	CDI
-        </label>
+
+         <select bind:value= {joblevel} required>
+           {#each joblevels as _joblevel}
+           <option value={_joblevel}>{_joblevel}</option>
+           {/each}
+         </select>
+
         <p>🤑 Type of Work</p>
-        <label>
-        	<input type=radio bind:group={worktype} value={1}>
-        	Presential
-        </label>
-        <label>
-        	<input type=radio bind:group={worktype} value={2}>
-        	Remote
-        </label>
-        <label>
-        	<input type=radio bind:group={worktype} value={3}>
-        	Hybrid
-        </label>
-        <p>🤑 Salary</p>
-        <select>
-          <option value="0">Select a Salary Range</option>
-          <option value="1">> €500</option>
-          <option value="2">€500 - €700</option>
-          <option value="3">€700 - €900</option>
-          <option value="4">€900 - €1.100</option>
-          <option value="5">> €1.100</option>
+        <select bind:value= {place} required>
+          {#each places as _place}
+          <option value={_place}>{_place}</option>
+          {/each}
         </select>
-        <button>{buttontitle}</button>
+
+        <p>🤑 Salary</p>
+        <select bind:value= {salary} required>
+          {#each salarys as _salary}
+          <option value={_salary}>{_salary}</option>
+          {/each}
+        </select>
+        <button type ='submit'>{buttontitle}</button>
+      </form>
       </div>
     </div>
   {/if}
-  

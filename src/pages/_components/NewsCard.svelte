@@ -1,10 +1,17 @@
 <script>
-    export let id
-    let numLikes = 0
+    import { supabase } from "../../lib/supabaseClient";
+    
+    let _delete = async(id) => {
+        let { data, error } = await supabase
+        .from("news")
+        .delete()
+        .match({id: id})
 
-    let like = () => {
+        location.reload();
+    }
+    
+    let like = async (id) => {
         let button = document.getElementById(id);
-
         if (button.innerHTML == "🤍"){
             button.innerHTML = "❤️";
             numLikes += 1;
@@ -12,11 +19,18 @@
             button.innerHTML = "🤍";
             numLikes -= 1;
         }
+
+        const { data, error } = await supabase
+        .from('news')
+        .update({ likes: numLikes })
+        .match({ id: id })
     }
+
+    export let _new
+    let numLikes = _new.likes
 </script>
 
 <style>
-
     p, h4{ 
         margin: 0 auto;
         float:left;
@@ -48,19 +62,20 @@
         background-color: transparent;
         border: none;
         padding: 0;
+        cursor: pointer;
     }
 
 </style>
 
 <div class='all'>
         <div  style="float:left;padding-left: 20px;">
-            <p> <strong>Diego Akel </strong>-  07/05/2022</p>
+            <p> <strong>{_new.author}</strong> - {_new.created_at.substring(0,10)}</p>
             <br/>
-            <p>The teacher just said theres a Site to deliver to next week</p> 
+            <p>{_new.text}</p> 
             <br/>
-            <button class="delete">🗑️</button>
-            <button id = {id} on:click={like} >🤍</button> {numLikes}
+            <button class="delete" on:click={_delete(_new.id)}>🗑️</button>
+            <button id = {_new.id} on:click={like(_new.id)} >🤍</button> {numLikes}
             <br/>
-            <h4 class="card">Homework</h4> 
+            <h4 class="card">{_new.tag}</h4> 
         </div>
 </div>
